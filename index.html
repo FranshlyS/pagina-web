@@ -3,35 +3,99 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bienvenid@</title>
+    <title>Bienvenida Animada - Franshly</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
+        /* Variables de color para fácil modificación */
+        :root {
+            --bg-color: #1a1a2e; /* Azul oscuro profundo */
+            --container-bg: #2a2a4a; /* Un poco más claro para el contenedor */
+            --text-color: #e0e0e0; /* Texto claro */
+            --accent-color-1: #ff6b6b; /* Rojo coral */
+            --accent-color-2: #feca57; /* Amarillo anaranjado */
+            --accent-color-3: #48dbfb; /* Cian brillante */
+            --accent-color-4: #ff9ff3; /* Rosa suave */
+            --shadow-color: rgba(0, 0, 0, 0.5);
+            --glow-color: rgba(72, 219, 251, 0.3); /* Para el hover glow */
+        }
+
         body {
-            font-family: Arial, sans-serif;
-            text-align: center;
-            margin-top: 50px;
-            background-color: #f4f4f4;
-            color: #333;
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Ocupa toda la altura de la pantalla */
+            overflow: hidden; /* Evita scrollbars si algo se desborda un poco */
+            padding: 20px;
+            box-sizing: border-box;
         }
+
         .container {
-            background-color: #fff;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 0 15px rgba(0,0,0,0.1);
-            display: inline-block; /* Para que el contenedor se ajuste al contenido */
+            background: var(--container-bg);
+            padding: 40px 50px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px var(--shadow-color);
+            text-align: center;
+            max-width: 90%;
+            width: 600px; /* Ancho máximo del contenedor */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición para el hover */
         }
+
+        .container:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 20px 40px var(--shadow-color), 0 0 25px var(--glow-color);
+        }
+
         h1 {
-            color: #0056b3; /* Un azul bonito */
+            font-size: 2.8em;
+            font-weight: 700;
+            margin-bottom: 25px;
+            /* La animación se aplicará aquí */
+            animation: colorCycle 8s ease-in-out infinite;
+            letter-spacing: 1px;
         }
-        .nombre {
-            font-size: 1.2em;
-            font-weight: bold;
-            color: #333;
-            margin-top: 15px;
+
+        .name, .id {
+            font-size: 1.3em;
+            margin-bottom: 10px;
+            line-height: 1.6;
         }
-        .matricula {
-            color: #555;
+
+        .name {
+            font-weight: 600;
+            color: var(--text-color); /* Un poco más brillante que el ID */
+        }
+
+        .id {
+            font-weight: 300;
+            color: #b0b0d0; /* Un poco más tenue */
             font-style: italic;
-            margin-top: 10px;
+        }
+
+        /* Definición de la animación de color para el H1 */
+        @keyframes colorCycle {
+            0%, 100% { color: var(--accent-color-1); }
+            25% { color: var(--accent-color-2); }
+            50% { color: var(--accent-color-3); }
+            75% { color: var(--accent-color-4); }
+        }
+
+        /* Media query para pantallas más pequeñas */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2.2em;
+            }
+            .name, .id {
+                font-size: 1.1em;
+            }
+            .container {
+                padding: 30px 25px;
+            }
         }
     </style>
 </head>
@@ -39,8 +103,8 @@
 
     <div class="container">
         <h1>¡Bienvenidos a mi web!</h1>
-        <p class="nombre">Mi nombre es: Franshly Saul Rodriguez Moris</p>
-        <p class="matricula">2023-1378</p>
+        <p class="name">Franshly Saul Rodriguez Moris</p>
+        <p class="id">2023-1378</p>
     </div>
 
 </body>
